@@ -193,6 +193,12 @@ func aggregateVotes(votes []*vote) (result string) {
 	/////////////////////////
 	// YOUR CODE GOES HERE //
 	/////////////////////////
-	result = votes[0].value
+	var index int = 0
+	for i := 0 ; i < len(votes); i++ {
+		if votes[i].timestamp > votes[index].timestamp {
+			index = i
+		}
+	}
+	result = votes[index].value
 	return
 }
